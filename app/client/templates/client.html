@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Чаты</p>
+     <div>
+        <div>
+             <ul>
+                 {% for rieltor in rieltors%}
+                    <li>
+                           <p>{{rieltor.username}}</p>
+                           <p>{{last_message}}</p>
+                    </li>
+             </ul>
+        </div>
+        {%  block content %}
+        {% endblock %}
+     </div>
+</body>
+</html>

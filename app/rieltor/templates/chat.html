@@ -1,0 +1,15 @@
+{% extends 'client.html'  %}
+
+
+{% block content %}
+<div>
+    {% for message in messages %}
+
+          <div>
+            <p> message.text </p>
+            <p> message.date </p>
+         </div>  
+    {% endfor %}
+
+</div>
+{% endblock %}

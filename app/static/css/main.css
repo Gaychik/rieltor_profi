@@ -1,0 +1,8 @@
+.contact_btn {
+    display: none;
+}
+
+.rieltor-card:focus .contact_btn
+{
+    display: block;
+}
