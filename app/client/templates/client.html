@@ -6,19 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Чаты</p>
-     <div>
+    <p> Чаты </p>
+    <div>
         <div>
-             <ul>
-                 {% for rieltor in rieltors%}
-                    <li>
-                           <p>{{rieltor.username}}</p>
-                           <p>{{last_message}}</p>
-                    </li>
-             </ul>
+            <ul>
+                {% for rieltor in rieltors %}
+                <li>
+                    <a href="{{url_for('client.show_chat',rieltor_id=rieltor.id)}}">
+                        <span class="r-name">{{rieltor.username}}</span>
+                        <span class="last-msg">{{last_message}}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-        {%  block content %}
+        
+        {% block content %}
         {% endblock %}
-     </div>
+        
+    </div>
 </body>
 </html>

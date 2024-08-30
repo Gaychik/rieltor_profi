@@ -9,5 +9,5 @@ def profile():
 @login_required
 def show_chat(client_id):
     messages = Message.query.filter(and_(Message.client_id==client_id,Message.rieltor_id==current_user.id)).all()
-    return render_template('.chat.html',messages=messages)
+    return render_template('rieltor.chat.html',messages=messages)
 

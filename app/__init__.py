@@ -11,9 +11,14 @@ db=SQLAlchemy()
 from app.models.Client import Client
 from app.models.Rieltor import Rieltor
 from app.models.Message import Message
+from app.models.Client_Rieltor_Association import client_rieltor_table
 login_manager=LoginManager()
 login_manager.login_view='auth.login'
 from app.main import *
 from app.rieltor import *
 from app.client import *
 from app.reg_auth import *
+
+from  .app import create_app
+from dotenv import load_dotenv
+

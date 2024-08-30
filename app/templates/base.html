@@ -7,6 +7,8 @@
     {% block link %} {% endblock %}
 </head>
 <body>
+   {% block header%}
+   {% endblock %}
       <h1>Rieltor-PROFI</h1>
        <div class="messsages">
           {% with messages = get_flashed_messages(with_categories=true) %}  
