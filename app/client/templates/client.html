@@ -10,11 +10,11 @@
     <div>
         <div>
             <ul>
-                {% for rieltor in client.rieltors %}
+                {% for chat in chats%}
                 <li>
-                    <a href="{{url_for('client.show_chat',rieltor_id=rieltor.id)}}">
-                        <span class="r-name">{{rieltor.username}}</span>
-                        <span class="last-msg">{{last_message}}</span>
+                    <a href="{{url_for('client.show_chat',rieltor_id=chat.rieltor_id)}}">
+                        <span class="r-name">{{chat.rieltor.username}}</span>
+                        <span class="last-msg">{{chat.last_message}}</span>
                     </a>
                 </li>
                 {% endfor %}

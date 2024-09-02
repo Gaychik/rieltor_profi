@@ -7,8 +7,10 @@ from app.config import Config
 
 
 db = SQLAlchemy()
+
 from app.models.Client import Client
 from app.models.Rieltor import Rieltor
+from app.models.Chat import Chat
 from app.models.Message import Message 
 from app.models.Client_Rieltor_Association import client_rieltor_table
 login_manager = LoginManager()

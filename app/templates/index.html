@@ -23,7 +23,7 @@
         <p class="info-rieltor">{{rieltor.experience}}</p>
         <p class="info-rieltor">{{rieltor.info}}</p>
         <p class="info-rieltor">{{rieltor.company}}</p>
-        <a class="contact_btn" href="{{url_for('client.show_chat',rieltor_id = rieltor.id)}}"> Связаться </a>
+        <a class="contact_btn" href="{{url_for('client.connect',rieltor_id = rieltor.id)}}"> Связаться </a>
     </li>
     {% endfor %}
  </ul>

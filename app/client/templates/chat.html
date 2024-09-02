@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-    {% for message in messages%}
+    {% for message in current_chat.messages%}
         <div>
             <p class="msg">message.text</p>
             <p class="date-msg">message.date</p>
