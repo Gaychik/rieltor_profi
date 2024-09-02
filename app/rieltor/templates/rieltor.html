@@ -6,19 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Чаты</p>
-     <div>
+    <p> Чаты </p>
+    <div>
         <div>
-             <ul>
-                 {% for client in clients%}
-                    <li>
-                           <p>{{client.username}}</p>
-                           <p>{{last_message}}</p>
-                    </li>
-             </ul>
+            <ul>
+                {% for client in clients %}
+                <li>
+                    <p>{{client.username}}</p>
+                    <p>{{last_message}}</p>
+                </li>
+            </ul>
         </div>
-        {%  block content %}
+        
+        {% block content %}
         {% endblock %}
-     </div>
+        
+    </div>
 </body>
 </html>

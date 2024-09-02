@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    {% block link %} {% endblock %}
+    {% block link %}{% endblock %}
 </head>
 <body>
-   {% block header%}
-   {% endblock %}
-      <h1>Rieltor-PROFI</h1>
-       <div class="messsages">
-          {% with messages = get_flashed_messages(with_categories=true) %}  
-             {% if messages %} 
+    {% block header %}
+    {% endblock %}
+    <h1>Rieltor-PROFI</h1>
+    <div class="messsages">  
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
                 {% for category,message in messages %}
-                   <p class="flash {{category}}"> {{message}} </p> 
+                    <p class="flash {{category}}">{{message}}</p>
                 {% endfor %}
             {% endif %}
-          {% endwith %}
-       </div>
-      {% block content %}  {% endblock %}
+        {% endwith %}
+    </div>
+    {% block content%}    {% endblock %}
 </body>
 </html>

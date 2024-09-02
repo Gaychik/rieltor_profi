@@ -2,7 +2,6 @@
     display: none;
 }
 
-.rieltor-card:focus .contact_btn
-{
+.rieltor-card:focus .contact_btn{
     display: block;
 }

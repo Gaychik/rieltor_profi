@@ -1,27 +1,30 @@
-{% extends 'base.html' %}
+{%extends 'base.html'%}
 
 {% block header%}
-<h1> Главная страница </h1>
-  <div>
+
+<h1>Главная страница</h1>
+
+<div>
     <p>{{current_user.username}}</p>
     <a href="{{url_for('client.profile')}}">Личный кабинет</a>
-  </div>
-{%endblock%}
 
-
-{% block content %} 
-  <ul>
-     {% for rieltor in rieltors%}
-         <li class="rieltor-card">
-            <p сlass="info-rieltor">  {{rieltor.username}}  </p>
-            <p сlass="info-rieltor">  {{rieltor.phone}}  </p>
-            <p сlass="info-rieltor">  {{rieltor.experience}}  </p>
-            <p сlass="info-rieltor">  {{rieltor.info}}  </p>
-            <p сlass="info-rieltor">  {{rieltor.company}}  </p>
-            <a class="contact_btn" href="{{url_for('client.show_chat',rieltor_id = rieltor.id)}}"> Связаться </a>
-        </li>
-     {% endfor %}
-  </ul>
+</div>
 
 {% endblock %}
 
+
+
+{% block content%}    
+ <ul>
+    {% for rieltor in rieltors %}
+    <li class="rieltor-card">
+        <p class="info-rieltor">{{rieltor.username}}</p>
+        <p class="info-rieltor">{{rieltor.phone}}</p>
+        <p class="info-rieltor">{{rieltor.experience}}</p>
+        <p class="info-rieltor">{{rieltor.info}}</p>
+        <p class="info-rieltor">{{rieltor.company}}</p>
+        <a class="contact_btn" href="{{url_for('client.show_chat',rieltor_id = rieltor.id)}}"> Связаться </a>
+    </li>
+    {% endfor %}
+ </ul>
+{% endblock %}
