@@ -4,8 +4,8 @@
 <div>
     {% for message in current_chat.messages%}
         <div>
-            <p class="msg">message.text</p>
-            <p class="date-msg">message.date</p>
+            <p class="msg">{{message.text}}</p>
+            <p class="date-msg">{{message.date}}</p>
         </div>
     {% endfor %}
     <div>

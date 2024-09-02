@@ -13,6 +13,8 @@ def load_user(user_id):
 @bp_login.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
+        if current_user.role=='rieltor':
+            return redirect(url_for('rieltor.profile'))
         return redirect(url_for('main.index'))
     form=LoginForm()
     if form.validate_on_submit():
@@ -22,6 +24,8 @@ def login():
             user = Client.query.filter_by(phone=form.phone.data).first()      
         if user:
             login_user(user)
+            if current_user.role=='rieltor':
+                return redirect(url_for('rieltor.profile'))
             return redirect(url_for('main.index'))
     form_login = LoginForm()
     form_register=RegisterForm()   
@@ -36,7 +40,8 @@ def register():
             form.validate_fields_by_rieltor() 
             user = Rieltor(phone=form.phone.data,email=form.email.data,
                            info=form.info.data,username=form.username.data,
-                           company=form.company.data,experience=form.experience.data)
+                           company=form.company.data,experience=form.experience.data,
+                           role='rieltor')
         else:
             user = Client(phone=form.phone.data,email=form.email.data,username=form.username.data) 
         db.session.add(user)
@@ -50,4 +55,4 @@ def register():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('.login'))

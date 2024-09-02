@@ -5,6 +5,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True)    
     phone = db.Column(db.String,unique=True)
+    role = db.Column(db.String,default="client")
     
     # password_hash = db.Column(db.String, nullable=False)
     # def set_password(self, password):
