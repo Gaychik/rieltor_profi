@@ -1,0 +1,26 @@
+{% extends 'client.html' %}
+
+{% block content %}
+
+{% set target_client = current_chat.rieltor.phone %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script> 
+
+<div>
+    <p  id='target_client' hidden>{{target_client}}</p>
+    <div id="chat">
+        {% for message in current_chat.messages%}
+            <div>
+                <p class="msg">{{message.text}}</p>
+                <p class="date-msg">{{message.date}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <input id="msg" placeholder="Введите сообщение...">
+        <button id="send_msg_btn" onclick="sendMessage()">Отправить</button>
+    </div>
+</div>
+
+<script src="{{url_for('static',filename='js/chat.js')}}"></script>
+
+{% endblock %}

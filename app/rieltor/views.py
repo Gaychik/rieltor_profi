@@ -14,4 +14,4 @@ def profile():
 def show_chat(client_id):
     chats=Chat.query.filter(and_(Chat.rieltor_id==current_user.id,Chat.client_id==client_id) ).all()
     current_chat= Chat.query.filter_by(client_id=client_id).first()
-    return render_template('chat.html',chats=chats,current_chat=current_chat)
+    return render_template('rieltor_chat.html',chats=chats,current_chat=current_chat)

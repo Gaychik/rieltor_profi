@@ -6,7 +6,11 @@
 
 <div>
     <p>{{current_user.username}}</p>
-    <a href="{{url_for('client.profile')}}">Личный кабинет</a>
+    {% set route = url_for('client.profile')  %}
+    {% if current_user.role=='rieltor'%}
+        {% set route = url_for('rieltor.profile')  %}
+    {%endif%}
+    <a href="{{route}}">Личный кабинет</a>
     {% if current_user.is_authenticated%}
        <a href="{{url_for('auth.logout')}}"> Выход</a>
      {% endif %}  

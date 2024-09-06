@@ -7,7 +7,6 @@ from app.config import Config
 
 
 db = SQLAlchemy()
-
 from app.models.Client import Client
 from app.models.Rieltor import Rieltor
 from app.models.Chat import Chat
@@ -19,6 +18,8 @@ from app.main import *
 from app.rieltor import *
 from app.client import *
 from app.reg_auth import *
-
 from .app import create_app
 from dotenv import load_dotenv
+
+
+

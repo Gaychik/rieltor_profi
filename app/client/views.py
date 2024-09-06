@@ -29,4 +29,4 @@ def connect(rieltor_id):
 def show_chat(rieltor_id):
     chats=Chat.query.filter(and_(Chat.client_id==current_user.id,Chat.rieltor_id==rieltor_id) ).all()
     current_chat= Chat.query.filter_by(rieltor_id=rieltor_id).first()
-    return render_template('chat.html',chats=chats,current_chat=current_chat)
+    return render_template('client_chat.html',chats=chats,current_chat=current_chat)
