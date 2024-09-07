@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+            <p>{{current_user.username}}</p>
+            <a href="{{url_for('auth.logout')}}"> Выход</a>
+    </div>
     <p> Чаты </p>
     <div>
         <div>

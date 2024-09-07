@@ -1,5 +1,6 @@
 from . import bp_client
-from app import  db,render_template,login_required,current_user,Message,and_,client_rieltor_table,Chat,redirect,url_for
+from app import  db,render_template,login_required,Message,and_,client_rieltor_table,Chat,redirect,url_for
+from flask_login import current_user
 
 @bp_client.route('/profile')
 @login_required 
@@ -8,7 +9,7 @@ def profile():
     return render_template('client.html',chats=chats)
 
 
-@bp_client.route('/contact/<int:rieltor_id>')
+@bp_client.route('/contact/<rieltor_id>')
 @login_required 
 def connect(rieltor_id):
     select_query=client_rieltor_table.select().where(
@@ -24,7 +25,7 @@ def connect(rieltor_id):
 
     
 
-@bp_client.route('/chat/<int:rieltor_id>')
+@bp_client.route('/chat/<rieltor_id>')
 @login_required
 def show_chat(rieltor_id):
     chats=Chat.query.filter(and_(Chat.client_id==current_user.id,Chat.rieltor_id==rieltor_id) ).all()

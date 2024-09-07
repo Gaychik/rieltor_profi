@@ -2,12 +2,13 @@
 
 {% block content %}
 
-{% set target_client = current_chat.rieltor.phone %}
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script> 
 
 <div>
-    <p  id='target_client' hidden>{{target_client}}</p>
+    <p  id='target_client' hidden>{{ current_chat.rieltor.id}}</p>
     <div id="chat">
+        <p  id='chat_id' hidden>{{ current_chat.id}}</p>
         {% for message in current_chat.messages%}
             <div>
                 <p class="msg">{{message.text}}</p>

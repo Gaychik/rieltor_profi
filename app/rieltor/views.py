@@ -1,5 +1,6 @@
 from . import bp_rieltor
-from app import  db,render_template,login_required,current_user,Message,and_,client_rieltor_table,Chat,redirect,url_for
+from app import  db,render_template,login_required,Message,and_,client_rieltor_table,Chat,redirect,url_for
+from flask_login import current_user
 
 @bp_rieltor.route('/profile')
 @login_required 
@@ -9,7 +10,7 @@ def profile():
 
 
 
-@bp_rieltor.route('/chat/<int:client_id>')
+@bp_rieltor.route('/chat/<client_id>')
 @login_required
 def show_chat(client_id):
     chats=Chat.query.filter(and_(Chat.rieltor_id==current_user.id,Chat.client_id==client_id) ).all()

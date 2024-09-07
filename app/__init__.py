@@ -1,8 +1,8 @@
-from flask import render_template,redirect,flash,url_for,Flask,request
+from flask import render_template,redirect,flash,url_for,Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_,and_
 from werkzeug.security import generate_password_hash,check_password_hash
-from flask_login import LoginManager,login_user,logout_user,login_required,UserMixin,current_user
+from flask_login import LoginManager,login_user,logout_user,login_required,UserMixin
 from app.config import Config
 
 

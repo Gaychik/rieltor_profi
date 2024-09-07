@@ -5,17 +5,14 @@
 <h1>Главная страница</h1>
 
 <div>
-    <p>{{current_user.username}}</p>
     {% set route = url_for('client.profile')  %}
-    {% if current_user.role=='rieltor'%}
-        {% set route = url_for('rieltor.profile')  %}
-    {%endif%}
-    <a href="{{route}}">Личный кабинет</a>
     {% if current_user.is_authenticated%}
-       <a href="{{url_for('auth.logout')}}"> Выход</a>
-     {% endif %}  
+        <a href="{{route}}">Личный кабинет</a>
+        <a href="{{url_for('auth.logout')}}"> Выход</a>
+    {%else%}
+        <a href="{{url_for('auth.login')}}"> Войти</a>
+    {% endif %}  
 </div>
-
 {% endblock %}
 
 

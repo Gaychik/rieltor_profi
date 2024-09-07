@@ -1,5 +1,6 @@
 from . import bp_main
-from app import  render_template,Rieltor,current_user
+from app import  render_template,Rieltor 
+from flask_login import current_user
 
 @bp_main.route('/',methods=['GET'])
 @bp_main.route('/index')

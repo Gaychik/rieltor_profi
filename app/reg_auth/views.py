@@ -1,14 +1,23 @@
 from app import *
+from flask_login import current_user
 from . import bp_login
 from .forms.Forms import LoginForm,RegisterForm,ValidationError
 
 
 @login_manager.user_loader
 def load_user(user_id):
-    user = Client.query.get(int(user_id))
+    user = Client.query.get(user_id)
     if user is None:
-        user = Rieltor.query.get(int(user_id))
+        user = Rieltor.query.get(user_id)
     return user
+
+
+# @bp_login.after_request  
+# def add_no_cache_headers(response):  
+#     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'  
+#     response.headers['Pragma'] = 'no-cache'  
+#     response.headers['Expires'] = '0'  
+#     return response  
 
 @bp_login.route('/login', methods=['GET', 'POST'])
 def login():
